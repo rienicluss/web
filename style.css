@@ -1,0 +1,424 @@
+/* ---------- Reset & Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #f3e8ff 0%, #ffffff 100%);
+  color: #2c2c54;
+  min-height: 100vh;
+}
+
+/* ---------- Header & Tabs ---------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 8%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo-img {
+  width: 40px;     /* adjust size */
+  height: 40px;    /* keeps it square */
+  object-fit: contain;
+}
+.loginlogo-img {
+  width: 150px;     /* adjust size */
+  height: 150px;    /* keeps it square */
+  object-fit: contain;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2c2c54;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #8e44ad;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: #8e44ad;
+  border-radius: 2px;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 160px 8% 80px;  /* extra top padding for fixed header */
+  min-height: 100vh;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c2c54;
+}
+
+.hero-text h1 span {
+  color: #8e44ad;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #4b006e;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #8e44ad;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #a97edc;
+}
+
+/* ---------- Hero Image ---------- */
+.hero-graphic {
+  flex: 1;
+  text-align: right;
+}
+
+.hero-graphic img {
+  width: 480px;
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(142, 68, 173, 0.3);
+}
+
+/* ---------- Letter Page ---------- */
+.letter-section {
+  padding: 160px 8% 80px; /* space for fixed header */
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f3e8ff 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.letter-card {
+  max-width: 700px;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(142, 68, 173, 0.2);
+  text-align: left;
+  animation: fadeIn 1s ease forwards;
+}
+
+.letter-card h2 {
+  font-size: 2.4rem;
+  color: #8e44ad;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.letter-card p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #2c2c54;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- Reminders Page ---------- */
+.reminders-section {
+  padding: 160px 8% 80px; /* space for fixed header */
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f3e8ff 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.reminders-card {
+  max-width: 700px;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(142, 68, 173, 0.2);
+  text-align: left;
+  animation: fadeIn 1s ease forwards;
+}
+
+.reminders-card h2 {
+  font-size: 2.4rem;
+  color: #8e44ad;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.reminder-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.reminder-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #d3b3f5;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.reminder-form button {
+  background: #8e44ad;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.reminder-form button:hover {
+  background: #a97edc;
+}
+
+.reminder-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.reminder-list li {
+  background: #f9f5ff;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #2c2c54;
+  box-shadow: 0 4px 8px rgba(142,68,173,0.1);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #d63031;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.default-reminder {
+  background: #efe6ff; /* slightly different shade */
+  font-weight: 600;
+}
+
+/* ---------- Memories Page ---------- */
+.memories-section {
+  padding: 140px 6% 80px; /* space for fixed header */
+  background: linear-gradient(120deg, #f3e8ff 0%, #ffffff 100%);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.memories-section h2 {
+  font-size: 2.6rem;
+  color: #8e44ad;
+  margin-bottom: 40px;
+}
+
+/* Responsive photo grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Photo styling */
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover zoom effect */
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 28px rgba(142, 68, 173, 0.35);
+}
+
+.upload-box {
+  margin-bottom: 30px;
+}
+
+.upload-btn {
+  background-color: #8e44ad;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+.upload-btn:hover {
+  background-color: #732d91;
+}
+
+
+/* Style the file input to look like a button */
+#photoUpload {
+  padding: 10px 18px;
+  background-color: #8e44ad;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#photoUpload:hover {
+  background-color: #732d91;
+}
+
+/* Remove default text next to file input button */
+#photoUpload::file-selector-button {
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+/* ================================
+   Login Page
+===================================*/
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 140px;
+  min-height: 100vh;
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(142, 68, 173, 0.25);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-card h2 {
+  font-size: 2rem;
+  color: #8e44ad;
+  margin-bottom: 10px;
+}
+
+.login-card p {
+  color: #4b006e;
+  margin-bottom: 25px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card input {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid #9b59b6;
+  font-size: 1rem;
+}
+
+.login-card button {
+  background: #9b59b6;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #a97edc;
+}
+
+.login-note {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #777;
+}
+.logout {
+  color: #fff;
+  background: #8e44ad;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.logout:hover {
+  background: #732d91;
+}

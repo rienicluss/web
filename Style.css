@@ -1,0 +1,298 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ffc1cc 0%, #ff6b9d 50%, #ff4d6d 100%);
+        min-height: 100vh;
+    }
+
+    .main-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 50px 40px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        animation: fadeInScale 0.8s ease-out;
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+    }
+
+    h1 {
+        color: #ff4d6d;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(255, 77, 109, 0.2);
+        animation: pulse 2s infinite;
+    }
+
+    p {
+        color: #666;
+        font-size: 1.3em;
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #yesBtn {
+        background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+        color: white;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    #yesBtn:hover {
+        transform: scale(1.15) rotate(-5deg);
+        box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4);
+    }
+
+    #noBtn {
+        background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+        color: #666;
+        position: relative;
+    }
+
+    #noBtn:hover {
+        transform: scale(0.9);
+    }
+
+    .gif-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 5;
+        animation: slideInRight 1s ease-out;
+    }
+
+    #iceBear {
+        width: 150px;
+        height: auto;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        animation: float 3s ease-in-out infinite;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        font-size: 2em;
+        animation: floatUp 5s infinite ease-in;
+        opacity: 0;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkleAnim 2s infinite;
+        opacity: 0;
+        z-index: 5;
+        pointer-events: none;
+        box-shadow: 0 0 10px white;
+    }
+
+    /* Rose petals */
+    .petal {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(ellipse at center, #ff6b9d 0%, #ff4d6d 50%, transparent 70%);
+        border-radius: 50% 0 50% 0;
+        animation: petalFall 8s linear infinite;
+        opacity: 0.7;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    /* Cupid arrows */
+    .arrow {
+        position: absolute;
+        font-size: 2em;
+        animation: shootArrow 3s linear infinite;
+        opacity: 0;
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0;
+            transform: scale(0.5) translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+        10%, 30% {
+            transform: scale(1.1);
+        }
+        20%, 40% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+    }
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes sparkleAnim {
+        0%, 100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+    }
+
+    @keyframes petalFall {
+        0% {
+            transform: translateY(-100vh) rotate(0deg);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes shootArrow {
+        0% {
+            transform: translate(-100px, 0) rotate(-45deg);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        100% {
+            transform: translate(100vw, -50vh) rotate(-45deg);
+            opacity: 0;
+        }
+    }
+
+    /* Background hearts pattern */
+    .bg-heart {
+        position: absolute;
+        font-size: 3em;
+        opacity: 0.1;
+        animation: bgFloat 20s infinite ease-in-out;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    @keyframes bgFloat {
+        0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(50px, -50px) rotate(90deg);
+        }
+        50% {
+            transform: translate(0, -100px) rotate(180deg);
+        }
+        75% {
+            transform: translate(-50px, -50px) rotate(270deg);
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+        
+        p {
+            font-size: 1.1em;
+        }
+        
+        .gif-container {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        #iceBear {
+            width: 100px;
+        }
+    }

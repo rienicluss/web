@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reminders | For Hannah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header>
+  <div class="logo">
+    <img src="pics/H.png" alt="Logo" class="logo-img">
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="hihi.html">Home</a></li>
+      <li><a href="letter.html">Letter</a></li>
+      <li><a href="reminders.html">Reminders</a></li>
+      <li><a href="memories.html">Memories</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main class="reminders-section">
+    <div class="reminders-card">
+      <h2>Little Reminders 📝</h2>
+
+      <form id="reminderForm" class="reminder-form">
+        <input
+          type="text"
+          id="reminderInput"
+          placeholder="Type a new reminder..."
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul id="reminderList" class="reminder-list"></ul>
+    </div>
+  </main>
+
+  <script src="Scripts.js"></script>
+</body>
+</html>

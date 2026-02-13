@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine!</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff6b9d 0%, #ff4d6d 50%, #c9184a 100%);
+        color: white;
+        text-align: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+    }
+
+    .message {
+        font-size: 2.5em;
+        font-weight: bold;
+        animation: fadeInScale 1s ease-out;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        max-width: 90%;
+        margin-bottom: 30px;
+        z-index: 10;
+        position: relative;
+    }
+
+    .ice-bear {
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 20px;
+        animation: bounce 2s infinite;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 10;
+        position: relative;
+    }
+
+    .back-button {
+        background-color: white;
+        color: #ff4d6d;
+        border: none;
+        padding: 15px 35px;
+        margin-top: 30px;
+        cursor: pointer;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 10;
+        position: relative;
+    }
+
+    .back-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        background-color: #fff5f7;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        font-size: 2em;
+        animation: floatUp 5s infinite ease-in;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkleAnim 2s infinite;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    /* Confetti */
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        animation: confettiFall 3s linear infinite;
+        z-index: 5;
+    }
+
+    @keyframes fadeInScale {
+        0% { opacity: 0; transform: scale(0.5); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes sparkleAnim {
+        0%, 100% { opacity: 0; transform: scale(0); }
+        50% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes confettiFall {
+        0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* Pulsing glow effect */
+    .glow {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        z-index: 0;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.2); opacity: 0.8; }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="glow"></div>
+        <div class="message">
+            Yay!!! 💖 You just made me the happiest person alive! 💕
+        </div>
+        <img src="4.png" class="ice-bear" alt="Happy Ice Bear" />
+        <button onclick="window.location.href='index.html'" class="back-button">Go Back</button>
+    </div>
+
+    <!-- Background music -->
+    <audio id="yesMusic" src="fallen.mp3" autoplay loop></audio>
+
+    <script>
+        // Play music and handle autoplay restrictions
+        const music = document.getElementById('yesMusic');
+        music.play().catch(() => {
+            // If autoplay blocked, play on first click
+            document.body.addEventListener('click', () => music.play(), { once: true });
+        });
+
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️','💕','💖','💗','💓','💝'][Math.floor(Math.random()*6)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 2 + 1) + 'em';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        // Create sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.animationDelay = Math.random() * 1 + 's';
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            const colors = ['#ff6b9d','#ffd93d','#6bcf7f','#4d96ff','#ff85a2'];
+            confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.width = (Math.random()*10+5) + 'px';
+            confetti.style.height = (Math.random()*10+5) + 'px';
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
+
+        // Generate animations continuously
+        setInterval(createHeart, 300);
+        setInterval(createSparkle, 500);
+        setInterval(createConfetti, 200);
+
+        // Initial burst
+        for (let i=0; i<20; i++){
+            setTimeout(createHeart, i*100);
+            setTimeout(createConfetti, i*50);
+        }
+    </script>
+</body>
+</html>
